@@ -28,7 +28,7 @@ list_github_releases() {
   -H "Accept: application/vnd.github+json" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/repos/$OWNER/$REPO/releases \
-  | awk -F': ' '/tag_name/{gsub(/[",]*/, "");print $2}'
+  | awk -F': ' '/tag_name/{gsub(/[v",]*/, "");print $2}'
 }
 
 sort_versions() {
